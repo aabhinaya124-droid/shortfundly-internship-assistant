@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback Email | Internship AI</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body class="form-page"><div class="form-shell">
+<a href="{{ url_for('index') }}" class="back">← Back to chat</a><h1>Send feedback email</h1>
+<p>Send the candidate their feedback and the next review date, time, and meeting link.</p>
+{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}{% for category,message in messages %}<div class="notice {{ category }}">{{ message }}</div>{% endfor %}{% endif %}{% endwith %}
+<form method="post" class="email-form">
+<label>Candidate name</label><input name="candidate" required>
+<label>Candidate email</label><input name="email" type="email" required>
+<label>Feedback</label><textarea name="feedback" rows="7" required></textarea>
+<div class="date-row"><div><label>Next review date</label><input name="review_date" type="date" required></div><div><label>Next review time</label><input name="review_time" type="time" required></div></div>
+<label>Meeting link</label><input name="meeting_link" type="url" placeholder="https://meet.google.com/..." required>
+<button type="submit">Send feedback email →</button></form>
+</div></body></html>

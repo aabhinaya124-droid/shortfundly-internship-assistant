@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shortfundly Internship Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo"><span class="logo-icon">✦</span><span>Internship AI</span></div>
+    <button class="new-chat" id="newChat">＋ New chat</button>
+    <div class="side-label">WORKSPACE</div>
+    <button class="side-item active" id="chatTab">◉ Task assistant</button>
+    <a class="side-item" href="{{ url_for('review_email') }}">✉ Feedback email</a>
+    <div class="sidebar-bottom">
+      <div class="avatar">IA</div><div><b>Internship Assistant</b><small>Task support bot</small></div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div><div class="mobile-brand">✦ Internship AI</div><strong>Task assistant</strong><span class="status-dot"></span><small>Prototype</small></div>
+      <select id="language" aria-label="Choose response language">
+        <option>English</option><option>Tamil</option><option>Hindi</option>
+      </select>
+    </header>
+    <section class="chat-area" id="chatArea">
+      <div class="welcome" id="welcome">
+        <div class="sparkle">✦</div>
+        <h1>What are we working on?</h1>
+        <p>Your AI assistant for internship task explanations, work reviews, and feedback.</p>
+        <div class="suggestions">
+          <button class="suggestion" data-prompt="Explain my internship task step by step.">▤ <span><b>Explain my task</b><small>Understand the requirements</small></span> ↗</button>
+          <button class="suggestion" data-prompt="Help me review my completed work and identify missing requirements.">⌕ <span><b>Review my work</b><small>Find gaps and corrections</small></span> ↗</button>
+          <button class="suggestion" data-prompt="Help me prepare feedback and the next review schedule email.">✉ <span><b>Prepare review feedback</b><small>Plan the next review</small></span> ↗</button>
+        </div>
+      </div>
+    </section>
+    <form id="chatForm" class="composer">
+      <textarea id="message" rows="1" placeholder="Message Internship AI..." required></textarea>
+      <div class="composer-bottom"><span>AI can make mistakes. Check important feedback.</span><button id="sendBtn" type="submit" aria-label="Send message">↑</button></div>
+    </form>
+    <div class="footer-note">Internship task explanation · AI review · Feedback workflow</div>
+  </main>
+</div>
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>
